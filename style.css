@@ -1,0 +1,103 @@
+/* === НОВОГОДНЕЕ ОФОРМЛЕНИЕ === */
+
+/* Общий фон */
+body {
+  background: linear-gradient(135deg, #0c2e1d 0%, #1a472a 100%);
+  color: #f0f0f0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Снег (падающие снежинки) */
+@keyframes snowfall {
+  0% {
+    transform: translateY(-10px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.snowflake {
+  position: absolute;
+  top: -20px;
+  color: #fff;
+  font-size: 1.2em;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+  user-select: none;
+  z-index: 1000;
+  animation: snowfall 8s infinite linear;
+  opacity: 0;
+}
+
+/* Генерация снежинок через JS (см. ниже), но можно и вручную */
+/* Пример заголовка с праздничным стилем */
+h1, h2, h3 {
+  text-align: center;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(220, 20, 60, 0.6);
+  color: #ffd700;
+  margin: 1.5rem 0;
+}
+
+/* Кнопки в новогоднем стиле */
+button, .btn {
+  background: linear-gradient(to bottom, #d42020, #a60000);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Украшение: мигающие огоньки (гирлянда) */
+.garland {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+.light {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  animation: twinkle 1.5s infinite alternate;
+}
+.light:nth-child(1) { background: #ff3333; animation-delay: 0s; }
+.light:nth-child(2) { background: #33ff33; animation-delay: 0.2s; }
+.light:nth-child(3) { background: #3333ff; animation-delay: 0.4s; }
+.light:nth-child(4) { background: #ffff33; animation-delay: 0.6s; }
+.light:nth-child(5) { background: #ff33ff; animation-delay: 0.8s; }
+
+@keyframes twinkle {
+  from { opacity: 0.4; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1.1); }
+}
+
+/* Подвал с надписью */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #ffd700;
+  font-size: 0.9em;
+  margin-top: 40px;
+  border-top: 1px dashed #444;
+}
